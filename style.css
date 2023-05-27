@@ -1,0 +1,124 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+  display: grid;
+  height: 100%;
+  text-align: center;
+  place-items: center;
+  background: #dde6f0;
+}
+
+.circular{
+  height: 100px;
+  width:100px;
+  position: relative;
+}
+
+.circular .dentro, .circular .fuera, .circular .circulo{
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .dentro{
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: rgb(13, 22, 1);
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .circulo{
+  z-index: 1;
+  box-shadow: none;
+}
+
+.circular .numero{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.circular .barra{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #17a022;
+  border-radius:100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circulo .barra .progreso{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius:100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circulo .barra .progreso, .dot span{
+  background:#fa1e1e;
+}
+
+.circulo .izquierdo .progreso{
+  z-index: 1;
+  animation:izquierdo 4s linear both;
+}
+
+@keyframes izquierdo {100%
+{transform: rotate(180deg);
+}}
+
+.circulo .derecho{
+  z-index:3;
+  transform: rotate(180deg);
+}
+
+.circulo .derecho .progreso{
+  animation:izquierdo 4s linear both;
+  animation-delay: 4s;
+}
+
+@keyframes derecho {100%
+{transform: rotate(180deg);
+}}
+
+.circulo .dot{
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  margin-top: -5px;
+  animation: dot 8s linear both;
+  transform-origin:0% 50% ;
+}
+
+@keyframes dot {0%
+{transform: rotate(-90deg);
+}
+50%
+{transform: rotate(90deg);
+  z-index:4;
+}
+100%
+{transform: rotate(270deg);
+}
+}
